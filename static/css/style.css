@@ -1,0 +1,46 @@
+body{
+    background-image: url("Background.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.page{
+    background-color: rgb(14, 14, 145);
+    width: 400px;
+    height: auto;
+    margin: 100px auto;
+    border: 3px solid rgb(182, 214, 224);
+}
+.form input{
+    width: 300px;
+    height: 40px;
+    padding: 5px;
+    margin: 35px 45px;
+    border: 3px solid rgb(182, 214, 224);
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+.button{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    margin: 20px 110px;
+    position: relative;
+    cursor: pointer;
+    border: 3px solid rgb(182, 214, 224);
+    border-radius: 30px;
+    background-color: rgb(95, 173, 16);
+}
+p {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 20px;
+    font-size: 17px;
+}
+a {
+    color: rgb(241, 245, 8);
+    text-decoration: none;
+    font-size: 17px;
+}
