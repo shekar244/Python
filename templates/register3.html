@@ -5,12 +5,13 @@
     </head>
     <body>
         <div class="page">
-                <form class="form" action="connect.php" method="post">
-                    <input type="text" class="info" id="userid" name="userid" placeholder="UserID"/>
-                    <input type="text" class="info" id="phonenumber" name="phoneNumber" placeholder="Phone Number"/>
-                    <input type="text" class="info" id="password" name="password" placeholder="Password"/>
-                    <input type="submit" class="button" value="Register">
-                    <p class="con">Already Registered? <a href="/" id="login">Login</a></p>
+            <div>{{msg}}</div>
+                <form class="form" action="{{url_for('register')}}" method="post">
+                    <input type="text" class="info" id="userid" name="UserID" placeholder="UserID"/>
+                    <input type="text" class="info" id="password" name="UserPassword" placeholder="Password"/>
+                    <input type="text" class="info" id="phonenumber" name="PhoneNumber" placeholder="Phone Number"/>
+                    <button type="submit" class="button">Register</button>
+                    <p class="con">Already Registered? <a href="{{url_for('login')}}">Login</a></p>
                 </form>
         </div>
     </body>

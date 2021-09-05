@@ -10,8 +10,8 @@ app = Flask(__name__)
   
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'users1'
+app.config['MYSQL_PASSWORD'] = 'Nani123@'
+app.config['MYSQL_DB'] = 'registration'
   
 mysql = MySQL(app)
 
@@ -21,47 +21,45 @@ app.secret_key = ''
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     msg = ''
-    if request.method == 'POST' and 'userid' in request.form and 'password' in request.form:
-        userid = request.form['userid']
-        password = request.form['password']
+    if request.method == 'POST' and 'UserID' in request.form and 'UserPassword' in request.form:
+        UserID = request.form['UserID']
+        UserPassword = request.form['UserPassword']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM users WHERE userid = % s AND password = % s', (userid, password, ))
+        cursor.execute('SELECT * FROM accounts WHERE UserID = % s AND UserPassword = % s', (UserID, UserPassword, ))
         account = cursor.fetchone()
         if account:
             session['loggedin'] = True
-            session['Id'] = account['Id']
-            session['userid'] = account['userid']
+            session['UserID'] = account['UserID']
             msg = 'Logged in successfully !'
             return render_template('home.html', msg = msg)
         else:
-            msg = 'Incorrect userid / password !'
+            msg = 'Incorrect userID / password !'
     return render_template('login3.html', msg = msg)
   
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
-    session.pop('id', None)
-    session.pop('userid', None)
+    session.pop('UserID', None)
     return redirect(url_for('login'))
   
 @app.route('/register', methods =['GET', 'POST'])
 def register():
     msg = ''
-    if request.method == 'POST' and 'userid' in request.form and 'password' in request.form and 'phonenumber' in request.form :
-        userid = request.form['userid']
-        password = request.form['password']
-        phonenumber = request.form['phonenumber']
+    if request.method == 'POST' and 'UserID' in request.form and 'UserPassword' in request.form and 'PhoneNumber' in request.form :
+        UserID = request.form['UserID']
+        UserPassword = request.form['UserPassword']
+        PhoneNumber = request.form['PhoneNumber']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM users WHERE userid = % s', (userid, ))
+        cursor.execute('SELECT * FROM accounts WHERE userID = % s', (UserID, ))
         account = cursor.fetchone()
         if account:
             msg = 'Account already exists !'
-        elif not re.match(r'[^@]+@[^@]+\.[^@]+', userid):
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', UserID):
             msg = 'Invalid email address !'
-        elif not userid or not password or not phonenumber:
+        elif not UserID or not UserPassword or not PhoneNumber:
             msg = 'Please fill out the form !'
         else:
-            cursor.execute('INSERT INTO users VALUES (NULL, % s, % s, % s)', (userid, password, phonenumber, ))
+            cursor.execute('INSERT INTO accounts VALUES ( % s, % s, % s)', (UserID, PhoneNumber, UserPassword, ))
             mysql.connection.commit()
             msg = 'You have successfully registered !'
     elif request.method == 'POST':

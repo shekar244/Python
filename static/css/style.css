@@ -22,11 +22,10 @@ body{
 .button{
     width: 100px;
     height: 40px;
-    text-align: center;
     padding: 5px;
     color: rgb(0, 0, 0);
     font-size: 17px;
-    margin: 20px 110px;
+    margin: 20px 140px;
     position: relative;
     cursor: pointer;
     border: 3px solid rgb(182, 214, 224);

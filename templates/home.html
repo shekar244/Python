@@ -1,8 +1,133 @@
+<!DOCTYPE html>
 <html>
-    <head>
+<style>
+    table, th, td {
+  border:1px solid black;
+}
+* {
+  box-sizing: border-box;
+}
 
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+}
+
+
+</style>
+    <head>
+        <meta charset="UTF-8">
+        <title> Index </title>                   
     </head>
-    <body style="background-color: rgba(0, 255, 255, 0.925);">
-       <h1 style="color: rgba(48, 48, 241, 0.959); text-align: center; margin-top: 50px;">Welcome to IIT Indore</h1>
+    <body>
+        <div style="text-align: center;">
+            <h1 class="bottom">
+                Welcome to IIT Indore!!                
+           </h1>
+              <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/Indian_Institute_of_Technology%2C_Indore_Logo.png" width="150" height="150" alt="IIT Indore"/>
+        </div>
+        <div style="text-align: center;">
+            <h2>List of Courses For BTech Second year CSE</h2>
+         </div>
+         <div class="row">
+         <div class="column">
+             <div>
+                 <h3>Semester III:</h3>
+             </div>
+         <table>
+             <tr>
+                 <th>MA 203</th>
+                 <th>Complex Analysis and Differential Equations-II</th>
+             </tr>
+             <tr>
+                 <th>CS 201</th>
+                 <th>Discrete Mathematical Structures</th>
+             </tr>
+             <tr>
+                 <th>CS 203</th>
+                 <th>Data Structures and Algorithms</th>
+             </tr>
+             <tr>
+                 <th>CS 207</th>
+                 <th>Data Base and Information Systems</th>
+             </tr>
+             <tr>
+                 <th>CS 253</th>
+                 <th>Data Structures and Algorithms Lab</th>
+             </tr>
+             <tr>
+                 <th>CS 257</th>
+                 <th>Data base and Information Systems Lab</th>
+             </tr>
+             <tr>
+                 <th>IC 211</th>
+                 <th>Experimental Engineering Lab</th>
+             </tr>
+         </table>
+         </div>
+         <div class="column">
+             <div>
+                 <h3>Semester IV:</h3>
+             </div>
+             <table>
+                 <tr>
+                     <th>MA 204</th>
+                     <th>Numerical Methods</th>
+                 </tr>
+                 <tr>
+                     <th>CS 202</th>
+                     <th>Automata Theory and Logic</th>
+                 </tr>
+                 <tr>
+                     <th>CS 204</th>
+                     <th>Design and Analysis of Algorithms</th>
+                 </tr>
+                 <tr>
+                     <th>CS 206</th>
+                     <th>Logic Design</th>
+                 </tr>
+                 <tr>
+                     <th>CS 208</th>
+                     <th>Software Engineering</th>
+                 </tr>
+                 <tr>
+                     <th>CS 254</th>
+                     <th>Design and Analysis of Algorithms Lab</th>
+                 </tr>
+                 <tr>
+                     <th>CS 256</th>
+                     <th>Logic Design Lab</th>
+                 </tr>
+                 <tr>
+                     <th>CS258</th>
+                     <th>Software Engineering Lab</th>
+                 </tr>
+             </table>
+             </div>
+         </div>
+        <div style="text-align: center;">
+                <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
     </body>
 </html>
